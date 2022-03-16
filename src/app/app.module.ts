@@ -3,14 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TodoComponent } from './components/todo/todo.component';
+import { Todo2 } from './components/todo/todo.component';
 import { TodosListComponent } from './components/todos-list/todos-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent,
-    TodosListComponent
+    Todo2,
+    TodosListComponent,
+    HeaderComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

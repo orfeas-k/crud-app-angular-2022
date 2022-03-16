@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
+import { Todo2 } from '../todo/todo.component';
 
 @Component({
   selector: 'app-todos-list',
   templateUrl: './todos-list.component.html',
   styleUrls: ['./todos-list.component.css']
 })
+
 export class TodosListComponent implements OnInit {
 
-  title = 'Todos List #title';
+  title:string = 'Todos List #title';
 
   todos:Todo [];
 

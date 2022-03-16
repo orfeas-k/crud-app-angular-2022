@@ -1,0 +1,12 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;    
+}
+
+.app-button{
+    position:absolute;
+    left: 0;
+}
