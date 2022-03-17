@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
 import { Todo } from 'src/app/models/Todo';
-import { Todo2 } from '../todo/todo.component';
+import { takeLast } from 'rxjs';
 
 @Component({
   selector: 'app-todos-list',
@@ -10,25 +11,25 @@ import { Todo2 } from '../todo/todo.component';
 
 export class TodosListComponent implements OnInit {
 
-  title:string = 'Todos List #title';
-
-  todos:Todo [];
+  todos:Todo[] = [];
 
   todoInput:string = "";
 
-  constructor() { }
+  constructor(private todoService: TodoService) {}
 
-  ngOnInit(): void {
-    this.todos = [
-      {
-        title: "first todo",
-        completed: false
-      },
-      {
-        title: "second todo",
-        completed: true 
-      }
-    ]
+  ngOnInit(): void { 
+    this.todoService.getTodos().subscribe((todos) => (this.todos=todos));
+  }
+
+  deleteTodo(todo:Todo){
+    this.todoService
+      .deleteTodo(todo)
+      .subscribe( () => (this.todos = this.todos.filter( t => t.id !== todo.id) ));
+  }
+
+  completeTodo(todo:Todo){
+    todo.completed = !todo.completed;
+    console.log(todo.completed);
   }
 
   toggleCompleted(id:number){
@@ -36,10 +37,6 @@ export class TodosListComponent implements OnInit {
       if (i == id) v.completed = !v.completed;
       return v;
     })
-  }
-
-  deleteTodo(id:number){
-    this.todos = this.todos.filter( (v,i) => i !== id);
   }
 
   addTodo(){

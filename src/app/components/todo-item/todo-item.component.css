@@ -1,0 +1,21 @@
+.todo {
+    display: flex; /* align horizontally */
+    padding: 10px 15px;
+    margin: 10px;
+    align-items: center;
+	background-color: rgb(245, 245, 245);
+    cursor: pointer;
+    user-select: none;
+}
+
+.todo .id {
+	flex: 1 1 50px;
+}
+
+.todo .title {
+	flex: 1 1 100%;
+}
+
+.todo.completed .title {
+	text-decoration: line-through;
+}  

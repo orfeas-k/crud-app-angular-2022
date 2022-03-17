@@ -1,0 +1,14 @@
+<div [ngClass]="{ completed: todo.completed }" 
+    class="todo" 
+    (dblclick)="onDoubleClick(todo)">
+    <div class="title"> {{ todo.title }} </div>
+    <app-button 
+        (btnClick)="onDelete(todo)" 
+        imgSrc="../../../assets/img/delete-icon.png">
+    </app-button>
+</div>
+
+<!--
+<div class="id"> {{todo.id}} </div>
+<div class="title" (click)="toggleCompleted(i)" >{{todo.title}}</div>
+-->

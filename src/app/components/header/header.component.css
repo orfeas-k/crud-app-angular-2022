@@ -6,6 +6,12 @@ header{
     margin-bottom: 20px;    
 }
 
+h1{
+    font-size: 30px;
+    font-weight: lighter;
+    font-family: inherit;
+}
+
 .app-button{
     position:absolute;
     left: 0;
