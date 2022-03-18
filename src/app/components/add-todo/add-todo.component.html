@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()">
+    <input 
+        type="text" 
+        name="title"
+        [(ngModel)]="title"
+        placeholder="I won't forget to"
+        class="todo-input" 
+    />
+    <input type="submit" value="Add Todo" class="todo-submit">
+</form>
+
+
+<form (ngSubmit)="onSubmit()">
+    <input 
+    type="text" 
+    name="todoInput"
+    placeholder="I won't forget to.."
+    class="todo-input" 
+    />
+    <app-button color="#FE4880" text="Add Todo" class="todo-asdf" [ngStyle]="{'font-size':'28px'}" ></app-button>
+</form>
+
+

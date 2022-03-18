@@ -1,0 +1,36 @@
+form{
+	display: flex;
+	align-items: center;
+}
+
+.todo-input {
+	display: block;
+    width: 100%;
+	padding: 15px 5px;
+	margin: 0px 10px 0px;
+	background-color: #fcfcfc;
+	font-size: 17px;
+    outline:none;
+}
+.todo-asdf {
+	display: block;
+	width: 100%;
+	max-width: 0px;
+	padding: 10px 0px 10px;
+}
+
+
+.todo-submit {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	appearance: none;
+	border: none;
+    border-radius: 3px;
+	background-color: #FE4880;
+	padding: 10px 0px 10px;
+
+	color: #FFF;
+	font-size: 18px;
+	font-weight: bold;
+}
