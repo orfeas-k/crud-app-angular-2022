@@ -21,7 +21,7 @@ export class TodoItemComponent implements OnInit {
     this.onDeleteTodo.emit(todo);
   }
 
-  onDoubleClick(todo:Todo){
+  onComplete(todo:Todo){
     this.onCompleteTodo.emit(todo)
   }
 

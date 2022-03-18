@@ -2,17 +2,5 @@
     *ngFor="let todo of todos" 
     [todo]="todo"
     (onDeleteTodo)="deleteTodo(todo)" 
-    (onCompleteTodo)="completeTodo(todo)"></app-todo-item>
-
-<div class="todos-list">
-    <form (submit)="addTodo()">
-    <input 
-        type="text" 
-        name="todoInput"
-        placeholder="PLACE ME"
-        class="todo-input" 
-        [(ngModel)]="todoInput"
-    />
-    <input type="submit" value="Add Todo" class="todo-submit">
-</form>
-</div>
+    (onCompleteTodo)="completeTodo(todo)">
+</app-todo-item>

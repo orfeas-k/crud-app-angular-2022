@@ -7,11 +7,16 @@
 	border-bottom: 0;
 }
 
+form{
+	display: flex;
+	align-items: center;
+}
+
 .todo-input {
 	display: block;
     width: 100%;
 	padding: 10px 15px;
-	margin-top: 15px;
+	margin: 0px 10px 0px;
 	background-color: #F3F3F3;
 	border: none;
 	font-size: 20px;
@@ -28,8 +33,8 @@
 /*	outline: none;
 	background: none;*/
 	background-color: #FE4880;
-	margin: 15px auto;
 	padding: 10px 15px;
+	margin: 0px 10px 0px;
 
 	color: #FFF;
 	font-size: 18px;
