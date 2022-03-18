@@ -13,7 +13,8 @@
 <form (ngSubmit)="onSubmit()">
     <input 
     type="text" 
-    name="todoInput"
+    name="title"
+    [(ngModel)]="title"
     placeholder="I won't forget to.."
     class="todo-input" 
     />

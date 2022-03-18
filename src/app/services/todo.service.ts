@@ -32,4 +32,7 @@ export class TodoService {
     return this.httpClient.put<Todo>(url, todo, httpOptions);
   }
 
+  addTodo(todo:Todo): Observable<Todo>{
+    return this.httpClient.post<Todo>(this.apiUrl, todo, httpOptions);
+  }
 }

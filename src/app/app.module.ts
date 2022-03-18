@@ -7,7 +7,8 @@ import { TodosListComponent } from './components/todos-list/todos-list.component
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
-import { AddTodoComponent } from './add-todo/add-todo.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
     HeaderComponent,
     ButtonComponent,
     TodoItemComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
