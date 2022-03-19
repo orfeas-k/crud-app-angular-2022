@@ -1,4 +1,7 @@
 <header>
     <h1> {{ text }} </h1>
-    <app-button class="app-button" imgSrc="../../../assets/img/search_3.png" (btnClick)="toggleSearchField()"> </app-button>
+    <div class="search">
+        <input [ngClass]="{'transition':showSearchField}" [hidden]="!showSearchField" type="text" name="searchField" class="searchField">
+        <app-button class="app-button" imgSrc="../../../assets/img/search_3.png" (btnClick)="toggleSearchField()"> </app-button>
+    </div>
 </header>

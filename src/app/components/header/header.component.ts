@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   @Input() text:String;
-  showSearchField:boolean;
+  showSearchField:boolean = false;
   subscription:Subscription;
 
   constructor(private uiService:UiService) { 

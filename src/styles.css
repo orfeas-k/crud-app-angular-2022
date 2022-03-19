@@ -6,3 +6,8 @@
 
     font-family: "Montserrat", sans-serif;
 }
+
+input{
+    border-style:solid;
+    border-width: 1px;
+}
