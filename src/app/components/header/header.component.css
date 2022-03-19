@@ -1,8 +1,7 @@
 header{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
     margin-bottom: 20px;    
 }
 
@@ -12,7 +11,4 @@ h1{
     font-family: inherit;
 }
 
-.app-button{
-    position:absolute;
-    left: 0;
-}
+

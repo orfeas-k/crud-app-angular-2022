@@ -13,7 +13,7 @@ export class AddTodoComponent implements OnInit {
   title:string;
   completed:boolean = false;
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +35,7 @@ export class AddTodoComponent implements OnInit {
     console.log(newTodo)
     this.onSubmitTodo.emit(newTodo);
     this.todoService.addTodo(newTodo).subscribe( );
+
 
     this.title = '';
     this.completed = false;

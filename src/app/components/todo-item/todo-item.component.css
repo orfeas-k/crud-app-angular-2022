@@ -2,7 +2,7 @@
     display: flex; /* align horizontally */
     align-items: center;
     padding: 10px 5px;
-    margin: 13px;
+    margin: 13px 6px 13px;
 	background-color: rgb(245, 245, 245);
     box-shadow: 1px 1px 1px 1px #f5f5f5;
     user-select: none;
@@ -47,3 +47,4 @@
 .todo.completed .title {
 	text-decoration: line-through;
 }  
+	
