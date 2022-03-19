@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
 import { UiService } from 'src/app/services/ui.service';
 
 @Component({
@@ -7,10 +8,9 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() text:String;
   showSearchField:boolean = false;
 
-  constructor(private uiService:UiService) { 
+  constructor(private todoService: TodoService, private uiService:UiService) { 
   }
 
   ngOnInit(): void {
@@ -18,7 +18,14 @@ export class HeaderComponent implements OnInit {
 
   toggleSearchField(){
     this.showSearchField = !this.showSearchField
-    //this.uiService.toggleSearch();
+  }
+
+  sendTypedKeys(event:any){
+    console.log(event.target.value);
+    this.todoService.searchTodos(event.target.value).subscribe();
+
+    this.uiService.sendTypedKeys(event.target.value);
+
   }
 
 }

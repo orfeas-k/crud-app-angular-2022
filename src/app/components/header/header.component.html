@@ -1,11 +1,12 @@
 <header>
-    <h1> {{ text }} </h1>
+    <h1> My To-Do List </h1>
     <div class="search">
         <input [ngClass]="{'transition':showSearchField}" 
             [hidden]="!showSearchField" 
             type="text" 
             name="searchField" 
             class="searchField"
+            (keyup)="sendTypedKeys($event)"
             >
         <app-button class="app-button" imgSrc="../../../assets/img/search_3.png" (btnClick)="toggleSearchField()"> </app-button>
     </div>

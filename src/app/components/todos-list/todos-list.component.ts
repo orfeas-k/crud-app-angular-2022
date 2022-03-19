@@ -12,11 +12,10 @@ import { Todo } from 'src/app/models/Todo';
 
 export class TodosListComponent implements OnInit {
   todos:Todo[] = [];
-  refresh:boolean = false;
   subscription:Subscription;
 
   constructor(private todoService: TodoService, private uiService:UiService) {
-  //  this.subscription = this.uiService.onToggle().subscribe( (value) => (this.refresh = value) )
+   // this.subscription = this.uiService.onKeys().subscribe( (keys) => (this.refresh = keys) )
     this.subscription = this.uiService.onAdd().subscribe( (todo) => (this.todos.push(todo)) )
   }
 
@@ -27,13 +26,19 @@ export class TodosListComponent implements OnInit {
   deleteTodo(todo:Todo){
     this.todoService
       .deleteTodo(todo)
-      .subscribe( () => (this.todos = this.todos.filter( t => t.id !== todo.id) ));
+      .subscribe( () => (this.todos = this.todos.filter( t => t.id !== todo.id ) ));
   }
 
   completeTodo(todo:Todo){
-    todo.completed = !todo.completed; 
+    todo.completed = !todo.completed;
     this.todoService.updateTodo(todo).subscribe();
   }
+
+  updateTodo(todo:Todo){
+    this.todoService.updateTodo(todo).subscribe();
+  }
+
+  
 
 
 

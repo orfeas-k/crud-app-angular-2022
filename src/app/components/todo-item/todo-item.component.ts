@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Renderer2,ElementRef,ViewChild  } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
 
 
@@ -12,8 +12,17 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo; 
   @Output() onDeleteTodo: EventEmitter<Todo> = new EventEmitter()
   @Output() onCompleteTodo: EventEmitter<Todo> = new EventEmitter()
+  @Output() onUpdateTodo: EventEmitter<Todo> = new EventEmitter()
+  @ViewChild('titleInput') titleInput:ElementRef; 
 
-  constructor() {}
+  constructor(private renderer:Renderer2) {
+    this.renderer.listen('window', 'click',(e:Event)=>{ 
+      if( e.target!==this.titleInput.nativeElement){
+          this.doneEditing();
+      }
+    });
+  }
+  editFlag:boolean = false;
 
   ngOnInit(): void {}
 
@@ -23,6 +32,15 @@ export class TodoItemComponent implements OnInit {
 
   onComplete(todo:Todo){
     this.onCompleteTodo.emit(todo)
+  }
+
+  editTitle(){
+    this.editFlag = true;
+  }
+
+  doneEditing(){
+    this.editFlag = false;
+    this.onUpdateTodo.emit(this.todo);
   }
 
 }

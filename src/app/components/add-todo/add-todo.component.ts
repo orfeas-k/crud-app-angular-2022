@@ -9,7 +9,7 @@ import { Todo } from '../../models/Todo';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
-  @Output() onSubmitTodo: EventEmitter<Todo> = new EventEmitter()
+//  @Output() onSubmitTodo: EventEmitter<Todo> = new EventEmitter()
   userId:number = 1;
   title:string;
   completed:boolean = false;
@@ -25,14 +25,14 @@ export class AddTodoComponent implements OnInit {
       return;
     }
 
-    const newTodo = {
+    var newTodo:Todo = {
       userId: this.userId,
+      id:null,
       title: this.title,
       completed: this.completed
     }
 
-    this.onSubmitTodo.emit(newTodo);
-    this.todoService.addTodo(newTodo).subscribe();
+    this.todoService.addTodo(newTodo).subscribe( (newTodoId) => (newTodo.id = newTodoId.id));
     this.uiService.addTodo(newTodo);
 
     this.title = '';

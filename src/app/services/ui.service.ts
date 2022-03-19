@@ -6,26 +6,25 @@ import { Todo } from '../models/Todo';
   providedIn: 'root'
 })
 export class UiService {
-  private showSearchField:boolean = false;
-  private subject = new Subject<any>();
+  private todoSubject = new Subject<any>();
+  private searchSubject = new Subject<any>();
 
   constructor() { }
-/*
-  toggleSearch():void {
-    this.showSearchField = !this.showSearchField;
-    this.subject.next(this.showSearchField);
+
+  sendTypedKeys(keys:string):void {
+    this.searchSubject.next(this);
   }
 
-  onToggle(): Observable<any> {
-    return this.subject.asObservable();
-  }*/
+  onKeys(): Observable<any> {
+    return this.searchSubject.asObservable();
+  }
 
   addTodo(todo:Todo):void {
-    this.subject.next(todo);
+    this.todoSubject.next(todo);
   }
 
   onAdd(): Observable<any> {
-    return this.subject.asObservable();
+    return this.todoSubject.asObservable();
   }
 
 }

@@ -1,12 +1,25 @@
-<div [ngClass]="{ completed: todo.completed }" 
-    class="todo">
+<div class="todo-container">
+
     <input type="checkbox"
         class="todo-checkbox" 
         (click)="onComplete(todo)"
         [checked]="todo.completed"/>
-    <div class="title"> {{ todo.title }} </div>
+
+    <div *ngIf="!editFlag"
+        [ngClass]="{ completed: todo.completed }" 
+        class="title"
+        (dblclick)="editTitle()">{{ todo.title }}</div>
+        
+    <input #titleInput *ngIf="editFlag"
+        type="text" 
+        name="titleInput" 
+        class="titleInput"
+        (dblclick)="doneEditing()"
+        [(ngModel)]="todo.title">
+
     <app-button 
         (btnClick)="onDelete(todo)" 
         imgSrc="../../../assets/img/delete-icon.png">
     </app-button>
+
 </div>

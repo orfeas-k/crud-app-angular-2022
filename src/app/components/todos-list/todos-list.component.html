@@ -2,5 +2,6 @@
     *ngFor="let todo of todos" 
     [todo]="todo"
     (onDeleteTodo)="deleteTodo(todo)" 
-    (onCompleteTodo)="completeTodo(todo)">
+    (onCompleteTodo)="completeTodo(todo)"
+    (onUpdateTodo)="updateTodo(todo)">
 </app-todo-item> 

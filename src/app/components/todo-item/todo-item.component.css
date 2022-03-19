@@ -1,4 +1,4 @@
-.todo {
+.todo-container {
     display: flex; /* align horizontally */
     align-items: center;
     padding: 10px 5px;
@@ -13,9 +13,7 @@
     box-shadow: 0.5px 0.5px 0.5px 0.5px #d3d3d3;
     -webkit-appearance: none;
     appearance: none;
-    /* For iOS < 15 to remove gradient background */
     background-color: #fff;
-    /* Not removed via appearance */
     margin: 10px;
     height: 15px;
     max-width: 15px;
@@ -38,13 +36,24 @@
 .todo-checkbox:checked:hover {
     background-color: #7cacd4;
 }
-  
-.todo .title {
+
+.title {
 	flex: 1 1 100%;
+    padding: 0px 5px;
     cursor: pointer;
 }
 
-.todo.completed .title {
+.title:empty{
+    min-height: 35px;
+}
+
+.title.completed {
 	text-decoration: line-through;
-}  
-	
+}
+
+.titleInput{
+    flex: 1 1 auto;
+    padding: 5px 5px 5px;
+    font-size: 16px;
+	background-color: rgb(250, 250, 250);
+}
