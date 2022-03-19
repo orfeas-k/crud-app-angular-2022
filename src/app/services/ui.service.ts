@@ -10,7 +10,7 @@ export class UiService {
   private subject = new Subject<any>();
 
   constructor() { }
-
+/*
   toggleSearch():void {
     this.showSearchField = !this.showSearchField;
     this.subject.next(this.showSearchField);
@@ -18,7 +18,7 @@ export class UiService {
 
   onToggle(): Observable<any> {
     return this.subject.asObservable();
-  }
+  }*/
 
   addTodo(todo:Todo):void {
     this.subject.next(todo);

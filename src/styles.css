@@ -9,5 +9,7 @@
 
 input{
     border-style:solid;
-    border-width: 1px;
+    border-color: #d3d3d3;
+    border-width: 0.5px;
+    outline: none;
 }

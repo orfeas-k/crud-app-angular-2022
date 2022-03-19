@@ -23,14 +23,13 @@ h1{
     margin-right: 10px;
 	padding: 7px 5px;
 	background-color: #fcfcfc;
-    border-style:none;
+    border-style:solid;
+    border-width: 1px;
 	font-size: 14px;
     outline:none;
     transition: all 2s;
 }
 
 .searchField.transition{
-    border-style:solid;
-    border-width: 1px;
     transition: all 2s;
 }

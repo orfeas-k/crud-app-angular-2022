@@ -1,11 +1,12 @@
 <button 
     *ngIf="imgSrc; else elseButton" 
     class="btn image" 
-    (click)="emitClick()"><img class="image" src="{{ imgSrc }}"/></button>
+    (click)="emitClick()"><img class="image" src="{{ imgSrc }}"/>
+</button>
 
-<ng-template #elseButton> 
+<ng-template #elseButton>
     <button 
-        class="btn" 
+        class="btn text" 
         [ngStyle]="{'background-color': color}" 
         (click)="emitClick()"> {{text}} </button> 
 </ng-template>

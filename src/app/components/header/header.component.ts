@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +9,6 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
   @Input() text:String;
   showSearchField:boolean = false;
-  subscription:Subscription;
 
   constructor(private uiService:UiService) { 
   }
@@ -19,7 +17,8 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleSearchField(){
-    this.uiService.toggleSearch();
+    this.showSearchField = !this.showSearchField
+    //this.uiService.toggleSearch();
   }
 
 }

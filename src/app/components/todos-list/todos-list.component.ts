@@ -16,7 +16,8 @@ export class TodosListComponent implements OnInit {
   subscription:Subscription;
 
   constructor(private todoService: TodoService, private uiService:UiService) {
-    this.subscription = this.uiService.onToggle().subscribe( (value) => (this.refresh = value) )
+  //  this.subscription = this.uiService.onToggle().subscribe( (value) => (this.refresh = value) )
+    this.subscription = this.uiService.onAdd().subscribe( (todo) => (this.todos.push(todo)) )
   }
 
   ngOnInit(): void { 
