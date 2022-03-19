@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TodoService } from 'src/app/services/todo.service';
+import { UiService } from 'src/app/services/ui.service'; 
 import { Todo } from '../../models/Todo';
 
 @Component({
@@ -13,7 +14,7 @@ export class AddTodoComponent implements OnInit {
   title:string;
   completed:boolean = false;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private uiService:UiService) { }
 
   ngOnInit(): void {
   }
@@ -30,19 +31,11 @@ export class AddTodoComponent implements OnInit {
       completed: this.completed
     }
 
-
-
-    console.log(newTodo)
     this.onSubmitTodo.emit(newTodo);
-    this.todoService.addTodo(newTodo).subscribe( );
-
+    this.todoService.addTodo(newTodo).subscribe();
+    this.uiService.addTodo(newTodo);
 
     this.title = '';
     this.completed = false;
   }
-/*
-  addTodo(todo:Todo){
-    this.todoService.addTodo(todo).subscribe( (todo) => (this.todos.push(todo)) );
-  }
-  */
 }
