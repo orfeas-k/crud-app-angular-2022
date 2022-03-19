@@ -6,5 +6,6 @@
 <ng-template #elseButton> 
     <button 
         class="btn" 
-        [ngStyle]="{'background-color': color}"> {{text}} </button> 
+        [ngStyle]="{'background-color': color}" 
+        (click)="emitClick()"> {{text}} </button> 
 </ng-template>

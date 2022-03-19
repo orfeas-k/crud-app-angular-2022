@@ -9,10 +9,11 @@ import { Todo } from '../../models/Todo';
 })
 export class AddTodoComponent implements OnInit {
   @Output() onSubmitTodo: EventEmitter<Todo> = new EventEmitter()
+  userId:number = 1;
   title:string;
   completed:boolean = false;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
   }
@@ -24,20 +25,23 @@ export class AddTodoComponent implements OnInit {
     }
 
     const newTodo = {
+      userId: this.userId,
       title: this.title,
       completed: this.completed
     }
 
+
+
     console.log(newTodo)
     this.onSubmitTodo.emit(newTodo);
-
+    this.todoService.addTodo(newTodo).subscribe( );
 
     this.title = '';
     this.completed = false;
   }
-
+/*
   addTodo(todo:Todo){
     this.todoService.addTodo(todo).subscribe( (todo) => (this.todos.push(todo)) );
   }
-  
+  */
 }
