@@ -12,7 +12,6 @@ export class UiService {
   constructor() { }
 
   sendSearchResults(todos:any):void {
-    console.log("sendSearchResults-UI");
     this.searchSubject.next(todos);
   }
 

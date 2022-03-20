@@ -9,31 +9,19 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class HeaderComponent implements OnInit {
   showSearchField:boolean = false;
-  keys:String = ''
-  results:any;
 
-  constructor(private todoService: TodoService, private uiService:UiService) { 
-  }
+  constructor(private todoService: TodoService, private uiService:UiService) { }
 
-  ngOnInit(): void {
-    this.todoService.searchTodos(this.keys).subscribe();
-  }
+  ngOnInit(): void { }
 
   toggleSearchField(){
     this.showSearchField = !this.showSearchField
   }
 
   sendTypedKeys(event:any){
-    this.keys = event.target.value;
-    this.keys = this.keys.trim();
-    this.todoService.
-      searchTodos(this.keys).
-        subscribe( (results) => 
-          {this.results = results;
-          let x = this.results.length;} );
-    console.log(this.keys + ": sendTypedKeys-header before UI after todoService");
-    console.log(this.results);
-    this.uiService.sendSearchResults(this.results);
+    let input = event.target.value.trim();
+    this.todoService.searchTodos(input).
+      subscribe( (results) => {this.uiService.sendSearchResults(results);}); 
   }
 
 }
