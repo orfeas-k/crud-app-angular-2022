@@ -15,7 +15,7 @@ export class TodosListComponent implements OnInit {
   subscription:Subscription;
 
   constructor(private todoService: TodoService, private uiService:UiService) {
-   // this.subscription = this.uiService.onKeys().subscribe( (keys) => (this.refresh = keys) )
+    this.subscription = this.uiService.onSearch().subscribe( (results) => (this.todos = results) )
     this.subscription = this.uiService.onAdd().subscribe( (todo) => (this.todos.push(todo)) )
   }
 
@@ -37,9 +37,5 @@ export class TodosListComponent implements OnInit {
   updateTodo(todo:Todo){
     this.todoService.updateTodo(todo).subscribe();
   }
-
-  
-
-
 
 }

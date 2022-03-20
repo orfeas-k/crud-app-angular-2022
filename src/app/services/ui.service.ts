@@ -11,11 +11,13 @@ export class UiService {
 
   constructor() { }
 
-  sendTypedKeys(keys:string):void {
-    this.searchSubject.next(this);
+  sendSearchResults(todos:any):void {
+    console.log("sendSearchResults-UI");
+    this.searchSubject.next(todos);
   }
 
-  onKeys(): Observable<any> {
+  onSearch(): Observable<any> {
+    console.log("onSearch-UI");
     return this.searchSubject.asObservable();
   }
 

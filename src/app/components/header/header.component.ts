@@ -9,11 +9,14 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class HeaderComponent implements OnInit {
   showSearchField:boolean = false;
+  keys:String = ''
+  results:any;
 
   constructor(private todoService: TodoService, private uiService:UiService) { 
   }
 
   ngOnInit(): void {
+    this.todoService.searchTodos(this.keys).subscribe();
   }
 
   toggleSearchField(){
@@ -21,11 +24,16 @@ export class HeaderComponent implements OnInit {
   }
 
   sendTypedKeys(event:any){
-    console.log(event.target.value);
-    this.todoService.searchTodos(event.target.value).subscribe();
-
-    this.uiService.sendTypedKeys(event.target.value);
-
+    this.keys = event.target.value;
+    this.keys = this.keys.trim();
+    this.todoService.
+      searchTodos(this.keys).
+        subscribe( (results) => 
+          {this.results = results;
+          let x = this.results.length;} );
+    console.log(this.keys + ": sendTypedKeys-header before UI after todoService");
+    console.log(this.results);
+    this.uiService.sendSearchResults(this.results);
   }
 
 }
