@@ -11,6 +11,8 @@
 * Full-text search in items (live or not)
 
 ---- 
+__Deployed @__ https://alexis-o.github.io/crud-app-angular-2022/docs
+
 __API:__ https://jsonplaceholder.typicode.com/ 
 
 __JSON Server storing To-Do items:__ https://arr-todo.herokuapp.com/ 
