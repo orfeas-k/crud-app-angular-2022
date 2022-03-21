@@ -1,12 +1,22 @@
 <form class="form" (ngSubmit)="onSubmit()">
-    <div class="inp"><input 
+
+    <!--Input field for new To Do-->
+    <div class="input-container">
+    <input 
         type="text" 
-        name="title"
         [(ngModel)]="title"
+        name="title"
         placeholder="I won't forget to.."
-        class="todo-input" 
-    /></div>  
-    <div class="but"><app-button color="#FE4880" text="Add" class="todo-asdf"></app-button></div>
+        class="todo-input"/>
+    </div>  
+
+    <!--Add button to submit new To Do-->
+    <div class="button-container">
+        <app-button 
+            color="#FE4880" 
+            text="Add"></app-button>
+    </div>
+
 </form>
 
 

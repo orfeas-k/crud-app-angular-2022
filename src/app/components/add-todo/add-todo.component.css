@@ -11,11 +11,11 @@ form > div{
 	margin: 5px; /* 10px space between div flex items*/
 }
 
-.inp{
+.input-container{
 	flex: 3 0 auto;
 }
 
-.but{
+.button-container{
 	flex: 1 0 auto;
 }
 

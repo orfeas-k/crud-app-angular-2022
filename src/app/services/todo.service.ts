@@ -36,8 +36,8 @@ export class TodoService {
     return this.httpClient.post<Todo>(this.apiUrl, todo, httpOptions);
   }
 
-  searchTodos(keys:String): Observable<any>{
-    const url = `${this.apiUrl}/?q=${keys}`
+  searchTodos(input:String): Observable<any>{
+    const url = `${this.apiUrl}?q=${input}` //Full-text search: GET ?q=input
     return this.httpClient.get<Todo[]>(url);
   }
 

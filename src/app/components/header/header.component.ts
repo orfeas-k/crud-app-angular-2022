@@ -18,10 +18,11 @@ export class HeaderComponent implements OnInit {
     this.showSearchField = !this.showSearchField
   }
 
-  sendTypedKeys(event:any){
+  getSearchResults(event:any){
+  //Gets results from server via TodoService and passes them to subscriber(todos-list) via UIService 
     let input = event.target.value.trim();
-    this.todoService.searchTodos(input).
-      subscribe( (results) => {this.uiService.sendSearchResults(results);}); 
+    this.todoService.searchTodos(input).subscribe( 
+      (results) => {this.uiService.passSearchResults(results);} ); 
   }
 
 }

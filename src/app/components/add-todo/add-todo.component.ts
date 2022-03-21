@@ -9,33 +9,32 @@ import { Todo } from '../../models/Todo';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
-//  @Output() onSubmitTodo: EventEmitter<Todo> = new EventEmitter()
-  userId:number = 1;
   title:string;
-  completed:boolean = false;
 
   constructor(private todoService: TodoService, private uiService:UiService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit(){ //Submits new To Do to server and passes it to the UI
     if(!this.title){
-      alert('Actually you forgot what do not wish to forget!')
+      alert('Actually you forgot what it was that you do not wish to forget!')
       return;
     }
 
     var newTodo:Todo = {
-      userId: this.userId,
+      userId: 1,
       id:null,
       title: this.title,
-      completed: this.completed
+      completed: false
     }
 
-    this.todoService.addTodo(newTodo).subscribe( (newTodoId) => (newTodo.id = newTodoId.id));
-    this.uiService.addTodo(newTodo);
-
+    //Submits the new To Do to server
+    this.todoService.addTodo(newTodo).subscribe( 
+      (newTodoId) => {newTodo.id = newTodoId.id; //Waiting on To Do id by server before passing it to the UI 
+                      this.uiService.addTodo(newTodo);});
+    
+    //Emptying input value 
     this.title = '';
-    this.completed = false;
   }
 }

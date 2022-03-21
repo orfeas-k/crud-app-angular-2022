@@ -1,4 +1,4 @@
-export class Todo { /*interface anti gia class */
+export interface Todo { 
     userId: number;
     id: any;
     title: string;

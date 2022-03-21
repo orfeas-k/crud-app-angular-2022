@@ -15,18 +15,19 @@ export class TodosListComponent implements OnInit {
   subscription:Subscription;
 
   constructor(private todoService: TodoService, private uiService:UiService) {
+    //Subscribing to UI Service subjects for live-search and add-new-Todo events
     this.subscription = this.uiService.onSearch().subscribe( (results) => (this.todos = results) )
     this.subscription = this.uiService.onAdd().subscribe( (todo) => (this.todos.push(todo)) )
   }
 
-  ngOnInit(): void { 
-    this.todoService.getTodos().subscribe((todos) => (this.todos=todos));
+  ngOnInit(): void {//Fetching todos data from json server on initialization
+    this.todoService.getTodos().subscribe(
+      (todos) => (this.todos=todos));
   }
 
   deleteTodo(todo:Todo){
-    this.todoService
-      .deleteTodo(todo)
-      .subscribe( () => (this.todos = this.todos.filter( t => t.id !== todo.id ) ));
+    this.todoService.deleteTodo(todo).subscribe( 
+      () => ( this.todos = this.todos.filter(t => t.id !== todo.id) ) );
   }
 
   completeTodo(todo:Todo){

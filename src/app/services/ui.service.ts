@@ -11,21 +11,20 @@ export class UiService {
 
   constructor() { }
 
-  sendSearchResults(todos:any):void {
-    this.searchSubject.next(todos);
-  }
-
-  onSearch(): Observable<any> {
-    console.log("onSearch-UI");
-    return this.searchSubject.asObservable();
-  }
-
   addTodo(todo:Todo):void {
     this.todoSubject.next(todo);
   }
 
-  onAdd(): Observable<any> {
+  onAdd(): Observable<any> { //Subscriber function
     return this.todoSubject.asObservable();
+  }
+
+  passSearchResults(todos:any):void {
+    this.searchSubject.next(todos);
+  }
+
+  onSearch(): Observable<any> { //Subscriber function
+    return this.searchSubject.asObservable();
   }
 
 }
