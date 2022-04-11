@@ -1,14 +1,18 @@
+<div *ngIf="imgSrc; then thenBlock else elseBlock"></div>
+
 <!--First div is enabled when imgSrc:String is passed from parent component -->
-<button 
-    *ngIf="imgSrc; else elseButton" 
-    class="btn image" 
-    (click)="emitClick()"><img class="image" src="{{ imgSrc }}"/>
-</button>
+<ng-template #thenBlock>
+    <button 
+        class="btn image" 
+        (click)="emitClick()"><img class="image" src="{{ imgSrc }}"/> </button>
+</ng-template>
 
 <!--Standard Text button-->
-<ng-template #elseButton>
+<ng-template #elseBlock>
     <button 
         class="btn text" 
         [ngStyle]="{'background-color': color}" 
         (click)="emitClick()"> {{text}} </button> 
 </ng-template>
+
+

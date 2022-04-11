@@ -8,11 +8,9 @@
 
     <!-- To Do title -->
     <div *ngIf="!editFlag"
-        [ngClass]="{ completed: todo.completed }" 
+        [ngClass]="{'completed': todo.completed }" 
         class="title"
         (dblclick)="editTitle()">{{ todo.title }}</div>
-    <!-- Prevents ERROR TypeError: this.titleInput is undefined-->
-    <div *ngIf="!editFlag" #titleInput></div> 
 
     <!-- To Do title's input field enabled when user double clicks on title above -->        
     <input #titleInput 
@@ -21,6 +19,8 @@
         class="titleInput"
         (dblclick)="doneEditing()"
         [(ngModel)]="todo.title">
+    <!-- Prevents ERROR TypeError: this.titleInput is undefined-->
+    <div #titleInput *ngIf="!editFlag"></div> 
 
     <!-- Delete button for each To Do --> 
     <app-button 

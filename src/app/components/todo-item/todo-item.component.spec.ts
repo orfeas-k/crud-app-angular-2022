@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { TodoItemComponent } from './todo-item.component';
+import { ButtonComponent } from '../button/button.component';
+
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
@@ -7,7 +10,8 @@ describe('TodoItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoItemComponent ]
+      imports: [HttpClientModule],
+      declarations: [ TodoItemComponent, ButtonComponent ]
     })
     .compileComponents();
   });
@@ -21,4 +25,5 @@ describe('TodoItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

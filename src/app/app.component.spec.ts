@@ -1,11 +1,23 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { TodosListComponent } from './components/todos-list/todos-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ButtonComponent } from './components/button/button.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[HttpClientModule],
       declarations: [
-        AppComponent
+        AppComponent,
+        TodosListComponent,
+        HeaderComponent,
+        TodoItemComponent,
+        AddTodoComponent,
+        ButtonComponent
       ],
     }).compileComponents();
   });
@@ -22,10 +34,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('crud-app-angular');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('crud-app-angular app is running!');
-  });
 });

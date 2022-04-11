@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AddTodoComponent } from './add-todo.component';
+import { ButtonComponent } from '../button/button.component';
+import { FormsModule } from '@angular/forms';
 
 describe('AddTodoComponent', () => {
   let component: AddTodoComponent;
@@ -8,7 +10,8 @@ describe('AddTodoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddTodoComponent ]
+      imports: [HttpClientModule, FormsModule],
+      declarations: [ AddTodoComponent, ButtonComponent ]
     })
     .compileComponents();
   });
